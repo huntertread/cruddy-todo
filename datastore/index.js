@@ -9,10 +9,6 @@ var items = {};
 
 exports.create = (text, callback) => {
   counter.getNextUniqueId((err, id) => {
-<<<<<<< HEAD
-
-=======
->>>>>>> e97f2fc9dcf7b68fe4c4f449bff360521b1ea01f
     var filepath = path.join(exports.dataDir, `${id}.txt`);
 
     fs.writeFile(filepath, text, (err) => {
@@ -20,10 +16,6 @@ exports.create = (text, callback) => {
         callback(err);
       } else {
         callback(null, {id, text});
-<<<<<<< HEAD
-=======
-
->>>>>>> e97f2fc9dcf7b68fe4c4f449bff360521b1ea01f
       }
     });
   });
@@ -37,25 +29,6 @@ exports.create = (text, callback) => {
 // };
 
 exports.readAll = (callback) => {
-<<<<<<< HEAD
-  // var data = _.map(items, (text, id) => {
-  //   return { id, text };
-  // });
-  var array = [];
-  fs.readdir(exports.dataDir, (err, datafiles) => {
-    if (err) {
-      console.log(err);
-    } else {
-
-      var data = datafiles.map((datafile) => {
-        var id = path.basename(datafile, '.txt');
-        return fs.readFile(path.join(exports.dataDir, datafile), (error, filetext) => {
-          return {id: id, text: filetext};
-        })
-      })
-    }
-  }
-=======
 
   fs.readdir(exports.dataDir, (err, files) => {
     if (err) {
@@ -67,9 +40,8 @@ exports.readAll = (callback) => {
     });
     callback(null, data);
   });
->>>>>>> e97f2fc9dcf7b68fe4c4f449bff360521b1ea01f
 };
-  // callback(null, data);
+// callback(null, data);
 
 
 exports.readOne = (id, callback) => {
